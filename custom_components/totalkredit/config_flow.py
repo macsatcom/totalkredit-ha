@@ -37,7 +37,7 @@ class TotalkreditConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         except Exception:
             return self.async_abort(reason="cannot_connect")
 
-        options = [{"value": b["fondCode"], "label": b["name"]} for b in bonds]
+        options = [{"value": b["fondCode"] or b.get("name"), "label": b["name"]} for b in bonds]
 
         return self.async_show_form(
             step_id="user",
@@ -85,7 +85,7 @@ class TotalkreditOptionsFlow(config_entries.OptionsFlow):
             "selected_bonds",
             self._config_entry.data.get("selected_bonds", []),
         )
-        options = [{"value": b["fondCode"], "label": b["name"]} for b in bonds]
+        options = [{"value": b.get("fondCode") or b.get("name"), "label": b["name"]} for b in bonds]
 
         return self.async_show_form(
             step_id="init",

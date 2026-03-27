@@ -1,0 +1,70 @@
+{
+  "title": "Kurser ved udbetaling af Totalkredit-lån med variabel rente",
+  "subtitle": "",
+  "disclaimer": "Alle kurser er vejledende og ikke et tilbud om udbetaling af lån.",
+  "tableDisplayVariant": "type-a",
+  "columns": [
+    {
+      "id": "Lifetime",
+      "order": 0
+    },
+    {
+      "id": "Name",
+      "order": 1
+    },
+    {
+      "id": "FondCode",
+      "order": 2
+    },
+    {
+      "id": "PriceRate",
+      "order": 3
+    },
+    {
+      "id": "SpotPriceRatePayment",
+      "order": 4
+    },
+    {
+      "id": "InterestMarginRate",
+      "order": 5
+    },
+    {
+      "id": "ExpectedRate",
+      "order": 6
+    }
+  ],
+  "groups": [
+    {
+      "name": "F-kort",
+      "entries": [
+        {
+          "name": "Aktuel rente 2,3892%, refinansiering 01-07-2029",
+          "lifetime": "30 år",
+          "fondCode": "955280",
+          "isOpenForOffer": true,
+          "interestMarginRate": "0,55 %",
+          "expectedRate": "2,5246 %",
+          "priceRate": "100,18",
+          "spotPriceRatePayment": "100,08",
+          "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/F6NYK32Hjub29"
+        }
+      ],
+      "fondCodeTooltipLabel": "Hver obligation har en unik 'fondskode'. Klik på fondskoden i tabellen og se flere detaljer om obligationen på Nasdaq Copenhagens hjemmeside.",
+      "nameTooltipLabel": "Låntype angiver lånets aktuelle rente, og hvornår lånet første gang skal refinansieres.",
+      "lifetimeTooltipLabel": "Løbetiden er det antal år et lån af den pågældende låntype maksimalt kan afvikles over.",
+      "interestMarginRateTooltipLabel": "Rentetillæg er et fast tillæg til obligationens variable referencerente, og udgør sammen med referencerenten lånets samlede rente. Rentetillægget er gældende indtil lånet refinansieres.",
+      "expectedRateTooltipLabel": "Dagens beregningsrente er den rente, der anvendes i lånetilbud og beregninger, som dannes i dag. Satsen er inkl. rentetillæg og er den højeste af: 1) lånets aktuelle rente eller 2) lånets rente, hvis der var rentefastsættelse nu. For lån med variabel rente bliver renten fastsat enten kvartårligt eller halvårligt.",
+      "spotPriceRatePaymentTooltipLabel": "Den aktuelle kurs er den kurs, du kan tilbydes lige nu, hvis du indgår en fastkursaftale om udbetaling af lån. Den aktuelle kurs er fratrukket et kursfradrag på 0,20 kurspoint. Hvis kursen skal fastlåses mere end tre dage frem, så beregnes også et terminsfradrag.",
+      "spotPriceRateRedemptionTooltipLabel": "Tilbudskursen er den kurs, der bruges i et lånetilbud. Tilbudskursen er seneste børsdags gennemsnitskurs opgjort på Nasdaq Copenhagen (konsolideret referencepris) fratrukket et kursfradrag på 0,20 kurspoint."
+    }
+  ],
+  "lastUpdatedTimestamp": "2026-03-27T15:01:35.517",
+  "nextUpdateTimestamp": "2026-03-27T14:15:00+00:00",
+  "hasTime": true,
+  "alarmBanner": {
+    "description": "",
+    "linkUrl": ""
+  },
+  "showLogo": false,
+  "showTooltipIcon": true
+}

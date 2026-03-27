@@ -10,16 +10,22 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 _LOGGER = logging.getLogger(__name__)
 
-API_URL = (
+FIXED_RATE_BONDS_API_URL = (
     "https://www.totalkredit.dk/api/bondinformation/table"
     "?tableId=privat-udbetaling-af-laan-aktuelle-kurser-kunder&domain=totalkredit"
 )
 
+N_YEARS_FIXED_RATE_BONDS_API_URL = (
+    "https://www.totalkredit.dk/api/bondinformation/table?tableId=privat-udbetaling-af-laan-kontantrenter-raadgivere-og-kunder&domain=totalkredit"
+)
 
-async def fetch_bonds() -> list[dict]:
-    """Hent alle obligationer fra Totalkredit API."""
+VARIABLE_RATE_BONDS_API_URL = (
+    "https://www.totalkredit.dk/api/bondinformation/table?tableId=privat-udbetaling-af-variabel-laan-aktuelle-kurser-kunder&domain=totalkredit"
+)
+
+async def fetch_bonds_from_url(url: str) -> list[dict]:
     async with aiohttp.ClientSession() as session:
-        async with session.get(API_URL) as response:
+        async with session.get(url) as response:
             response.raise_for_status()
             data = await response.json(content_type=None)
 
@@ -31,6 +37,14 @@ async def fetch_bonds() -> list[dict]:
             bond["group"] = group_name
             bonds.append(bond)
     return bonds
+
+async def fetch_bonds() -> list[dict]:
+    """Hent alle obligationer fra Totalkredit API."""
+    fixed_rate_bonds = await fetch_bonds_from_url(FIXED_RATE_BONDS_API_URL)
+    variable_rate_bonds = await fetch_bonds_from_url(VARIABLE_RATE_BONDS_API_URL)
+    n_years_fixed_rate_bonds = await fetch_bonds_from_url(N_YEARS_FIXED_RATE_BONDS_API_URL)
+
+    return fixed_rate_bonds + variable_rate_bonds + n_years_fixed_rate_bonds
 
 
 class TotalkreditCoordinator(DataUpdateCoordinator):

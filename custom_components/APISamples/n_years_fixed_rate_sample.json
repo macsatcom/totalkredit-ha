@@ -1,0 +1,63 @@
+{
+  "title": "Kontantrenter ved udbetaling af Tilpasningslån i Totalkredit",
+  "subtitle": "",
+  "disclaimer": "Kontantrenten er vejledende og baseret på de underliggende obligationers tilbudskurs.",
+  "tableDisplayVariant": "type-a",
+  "columns": [
+    {
+      "id": "Lifetime",
+      "order": 0
+    },
+    {
+      "id": "Name",
+      "order": 1
+    },
+    {
+      "id": "InnerInterestGrossValue",
+      "order": 2
+    }
+  ],
+  "groups": [
+    {
+      "name": "Tilpasningslån",
+      "entries": [
+        {
+          "name": "F3 med afdrag",
+          "lifetime": "30 år",
+          "isOpenForOffer": true,
+          "innerInterestGrossValue": "2,86%"
+        },
+        {
+          "name": "F3 med op til 10 års afdragsfrihed",
+          "lifetime": "30 år",
+          "isOpenForOffer": true,
+          "innerInterestGrossValue": "2,84%"
+        },
+        {
+          "name": "F5 med afdrag",
+          "lifetime": "30 år",
+          "isOpenForOffer": true,
+          "innerInterestGrossValue": "3,00%"
+        },
+        {
+          "name": "F5 med op til 10 års afdragsfrihed",
+          "lifetime": "30 år",
+          "isOpenForOffer": true,
+          "innerInterestGrossValue": "2,98%"
+        }
+      ],
+      "nameTooltipLabel": "Låntype angiver hvor mange år, der er mellem lånets rentetilpasninger (fx F3 = 3 år), og om lånet er med afdrag eller afdragsfrihed.",
+      "lifetimeTooltipLabel": "Løbetiden er det antal år et lån af den pågældende låntype maksimalt kan afvikles over.",
+      "innerInterestGrossValueTooltipLabel": "Kontantrenten angiver lånets rente baseret på seneste børsdags gennemsnitskurs på lånets underliggende obligationer."
+    }
+  ],
+  "lastUpdatedTimestamp": "2026-03-26T06:50:08.837",
+  "nextUpdateTimestamp": "2026-03-28T05:50:00+00:00",
+  "hasTime": true,
+  "alarmBanner": {
+    "description": "",
+    "linkUrl": ""
+  },
+  "showLogo": false,
+  "showTooltipIcon": true
+}
