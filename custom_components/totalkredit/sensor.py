@@ -26,7 +26,7 @@ async def async_setup_entry(
     async_add_entities(
         TotalkreditSensor(coordinator, bond)
         for bond in (coordinator.data or [])
-        if bond.get("fondCode") or bond.get("name") in selected
+        if bond.get("fondCode") in selected
     )
 
 
@@ -37,7 +37,7 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
 
     def __init__(self, coordinator: TotalkreditCoordinator, bond: dict) -> None:
         super().__init__(coordinator)
-        self._fond_code = bond["fondCode"] or bond.get("name")
+        self._fond_code = bond["fondCode"]
         self._attr_unique_id = f"totalkredit_{self._fond_code}"
         self._attr_name = f"Totalkredit {bond['name']}"
 
@@ -45,7 +45,7 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
         if not self.coordinator.data:
             return None
         return next(
-            (b for b in self.coordinator.data if (b.get("fondCode") == self._fond_code or b.get("name") == self._fond_code)),
+            (b for b in self.coordinator.data if (b.get("fondCode") == self._fond_code)),
             None,
         )
 
@@ -69,13 +69,14 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
         bond = self._get_bond()
         if bond is None:
             return {}
+
         return {
             "navn": bond.get("name"),
             "løbetid": bond.get("lifetime"),
             "fondskode": bond.get("fondCode"),
             "åben_for_tilbud": bond.get("openForOffer"),
             "er_åben_for_tilbud": bond.get("isOpenForOffer"),
-            "effektiv_rente": bond.get("effectiveRate") or bond.get("expectedRate") or bond.get("innerInterestGrossValue"),
+            "effektiv_rente": bond.get("effectiveRate"),
             "aktuel_kurs": bond.get("spotPriceRatePayment"),
             "gruppe": bond.get("group"),
             "nasdaq_url": bond.get("nasdaqUrl"),
