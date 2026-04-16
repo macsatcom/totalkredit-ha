@@ -8,19 +8,22 @@ from homeassistant.helpers.event import async_track_time_change
 from .const import DOMAIN, PLATFORMS
 from .coordinator import TotalkreditCoordinator
 
+# Opdater hver time fra kl. 08:00 til 18:00
+UPDATE_HOURS = range(8, 19)
+
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Opsæt integration fra en config entry."""
     coordinator = TotalkreditCoordinator(hass)
     await coordinator.async_config_entry_first_refresh()
 
-    async def _async_update_at_10(now) -> None:
+    async def _async_update(now) -> None:
         await coordinator.async_refresh()
 
-    cancel_time_listener = async_track_time_change(
-        hass, _async_update_at_10, hour=10, minute=0, second=0
-    )
-    entry.async_on_unload(cancel_time_listener)
+    for hour in UPDATE_HOURS:
+        entry.async_on_unload(
+            async_track_time_change(hass, _async_update, hour=hour, minute=0, second=0)
+        )
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
 

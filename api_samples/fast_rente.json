@@ -1,0 +1,235 @@
+{
+    "title": "Kurser ved udbetaling af Totalkredit-lån med fast rente",
+    "subtitle": "",
+    "disclaimer": "Alle kurser er vejledende og ikke et tilbud om udbetaling af lån.",
+    "tableDisplayVariant": "type-a",
+    "columns": [
+        {
+            "id": "Lifetime",
+            "order": 0
+        },
+        {
+            "id": "Name",
+            "order": 1
+        },
+        {
+            "id": "FondCode",
+            "order": 2
+        },
+        {
+            "id": "OpenForOffer",
+            "order": 3
+        },
+        {
+            "id": "PriceRate",
+            "order": 4
+        },
+        {
+            "id": "SpotPriceRatePayment",
+            "order": 5
+        },
+        {
+            "id": "EffectiveRate",
+            "order": 6
+        }
+    ],
+    "groups": [
+        {
+            "name": "Fast rente",
+            "entries": [
+                {
+                    "name": "5% 2056 med afdrag",
+                    "lifetime": "30 år",
+                    "fondCode": "954098",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "4,79 %",
+                    "priceRate": "103,15",
+                    "spotPriceRatePayment": "102,67",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/5NYK01EA56?id=XCSE5NYK01EA56"
+                },
+                {
+                    "name": "4% 2056 med afdrag",
+                    "lifetime": "30 år",
+                    "fondCode": "954187",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,23 %",
+                    "priceRate": "98,11",
+                    "spotPriceRatePayment": "98,23",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01EA56?id=XCSE4NYK01EA56"
+                },
+                {
+                    "name": "4% 2059 med afdrag",
+                    "lifetime": "30 år",
+                    "fondCode": "955299",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,29 %",
+                    "priceRate": "97,32",
+                    "spotPriceRatePayment": "97,10",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01EA59"
+                },
+                {
+                    "name": "3,5% 2056 med afdrag",
+                    "lifetime": "30 år",
+                    "fondCode": "954837",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,03 %",
+                    "priceRate": "94,56",
+                    "spotPriceRatePayment": "94,40",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/35NYK01A56?id=XCSE35NYK01A56"
+                },
+                {
+                    "name": "1% 2056 med afdrag",
+                    "lifetime": "30 år",
+                    "fondCode": "954470",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "3,96 %",
+                    "priceRate": "69,05",
+                    "spotPriceRatePayment": "69,21",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/1NYK01EA56?id=XCSE1NYK01EA56"
+                },
+                {
+                    "name": "5% 2056 med op til 10 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "954101",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "4,95 %",
+                    "priceRate": "101,62",
+                    "spotPriceRatePayment": "102,30",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/5NYK01EDA56?id=XCSE5NYK01EDA56"
+                },
+                {
+                    "name": "4% 2056 med op til 10 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "954195",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,28 %",
+                    "priceRate": "97,24",
+                    "spotPriceRatePayment": "97,34",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01EDA56?id=XCSE4NYK01EDA56"
+                },
+                {
+                    "name": "4% 2059 med op til 10 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "955302",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,34 %",
+                    "priceRate": "96,20",
+                    "spotPriceRatePayment": "96,02",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01EDA59"
+                },
+                {
+                    "name": "3,5% 2056 med op til 10 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "954977",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,06 %",
+                    "priceRate": "93,30",
+                    "spotPriceRatePayment": "93,12",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/35NYK01EDA56?id=XCSE35NYK01EDA56"
+                },
+                {
+                    "name": "5% 2056 med op til 30 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "954446",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "4,90 %",
+                    "priceRate": "102,83",
+                    "spotPriceRatePayment": "102,10",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/5NYK01E30DA56?id=XCSE5NYK01E30DA56"
+                },
+                {
+                    "name": "4% 2056 med op til 30 års afdragsfrihed",
+                    "lifetime": "30 år",
+                    "fondCode": "954594",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "4,32 %",
+                    "priceRate": "95,85",
+                    "spotPriceRatePayment": "95,91",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01E30DA56?id=XCSE4NYK01E30DA56"
+                },
+                {
+                    "name": "5% 2046 med afdrag",
+                    "lifetime": "20 år",
+                    "fondCode": "954500",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "4,66 %",
+                    "priceRate": "103,05",
+                    "spotPriceRatePayment": "102,26",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/5NYK01EA46?id=XCSE5NYK01EA46"
+                },
+                {
+                    "name": "4% 2046 med afdrag",
+                    "lifetime": "20 år",
+                    "fondCode": "954268",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "4,05 %",
+                    "priceRate": "100,10",
+                    "spotPriceRatePayment": "99,89",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/4NYK01EA46?id=XCSE4NYK01EA46"
+                },
+                {
+                    "name": "3,5% 2046 med afdrag",
+                    "lifetime": "20 år",
+                    "fondCode": "954845",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "3,93 %",
+                    "priceRate": "96,92",
+                    "spotPriceRatePayment": "97,02",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/35NYK01A46?id=XCSE35NYK01A46"
+                },
+                {
+                    "name": "3% 2036 med afdrag",
+                    "lifetime": "10 år",
+                    "fondCode": "954462",
+                    "openForOffer": "Lukket",
+                    "isOpenForOffer": false,
+                    "effectiveRate": "3,02 %",
+                    "priceRate": "100,05",
+                    "spotPriceRatePayment": "99,50",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/3NYK01EA36?id=XCSE3NYK01EA36"
+                },
+                {
+                    "name": "2% 2036 med afdrag",
+                    "lifetime": "10 år",
+                    "fondCode": "954969",
+                    "openForOffer": "Åben",
+                    "isOpenForOffer": true,
+                    "effectiveRate": "3,16 %",
+                    "priceRate": "94,98",
+                    "spotPriceRatePayment": "94,84",
+                    "nasdaqUrl": "https://www.nasdaq.com/da/european-market-activity/mortgage-bonds/2NYK01EA36?id=XCSE2NYK01EA36"
+                }
+            ],
+            "fondCodeTooltipLabel": "Hver obligation har en unik 'fondskode'. Klik på fondskoden i tabellen og se flere detaljer om obligationen på Nasdaq Copenhagens hjemmeside.",
+            "nameTooltipLabel": "Låntype angiver lånets rente, årgangen på obligationen bag lånet, og om lånet er med afdrag eller afdragsfrit.",
+            "lifetimeTooltipLabel": "Løbetiden er det antal år et lån af den pågældende låntype maksimalt kan afvikles over.",
+            "openForOfferTooltipLabel": "Hvis lånet er åbent, kan der udstedes nye lånetilbud, så du kan optage lånet. Lån med fast rente lukker for lånetilbud, hvis tilbudskursen er højere end 99,80. I dette tilfælde skal du have et allerede udstedt og gældende lånetilbud for at få udbetalt lånet.",
+            "effectiveRateTooltipLabel": "Den effektive rente viser, hvad den reelle rente på lånet er, når man tager højde for obligationens rente og kurs på børsen. Beregningen bruger seneste børsdags gennemsnitskurs opgjort på Nasdaq Copenhagen (konsolideret referencepris) fratrukket et kursfradrag på 0,20 kurspoint.",
+            "spotPriceRatePaymentTooltipLabel": "Den aktuelle kurs er den kurs, du kan tilbydes lige nu, hvis du indgår en fastkursaftale om udbetaling af lån. Den aktuelle kurs er fratrukket et kursfradrag på 0,20 kurspoint. Hvis kursen skal fastlåses mere end tre dage frem, så beregnes også et terminsfradrag.",
+            "spotPriceRateRedemptionTooltipLabel": "Tilbudskursen er den kurs, der bruges i et lånetilbud. Tilbudskursen er seneste børsdags gennemsnitskurs opgjort på Nasdaq Copenhagen (konsolideret referencepris) fratrukket et kursfradrag på 0,20 kurspoint."
+        }
+    ],
+    "lastUpdatedTimestamp": "2026-04-16T15:46:05.75",
+    "nextUpdateTimestamp": "2026-04-16T14:00:00+00:00",
+    "hasTime": true,
+    "alarmBanner": {
+        "description": "",
+        "linkUrl": ""
+    },
+    "showLogo": false,
+    "showTooltipIcon": true
+}

@@ -25,15 +25,35 @@ Integrationen konfigureres via Home Assistant UI:
 
 Du kan til enhver tid ændre dit obligationsvalg via **Konfigurer** på integrationssiden.
 
+## Obligationstyper
+
+Integrationen understøtter alle tre lånetyper fra Totalkredit:
+
+| Type | Eksempel |
+|------|---------|
+| Fast rente | 4% 2056 med afdrag |
+| F-kort (variabel rente) | Aktuel rente 2,39%, refinansiering 01-07-2029 |
+| Tilpasningslån | F3 med afdrag, F5 med afdrag |
+
 ## Entities
+
+For hver valgt obligation oprettes **to sensorer**:
+
+**Kurssensor** — udbetalingskurs (`priceRate`):
 
 | Entity | Eksempel |
 |--------|---------|
-| `sensor.totalkredit_4_2056_med_afdrag` | `99.16` |
+| `sensor.totalkredit_4_2056_med_afdrag` | `97.38` |
 
-**State:** `priceRate` (udbetalingskurs) som decimaltal. Vises som `unavailable` hvis obligationen ikke har en kurs (typisk lukkede obligationer).
+**Rentesensor** — effektiv rente (`effectiveRate`) i %:
 
-**Attributter:**
+| Entity | Eksempel |
+|--------|---------|
+| `sensor.totalkredit_rente_4_2056_med_afdrag` | `4.3` |
+
+Rentesensoren er velegnet til HA-statistik og energi-dashboards.
+
+**Attributter på kurssensoren:**
 
 | Attribut | Beskrivelse |
 |----------|-------------|
@@ -46,10 +66,11 @@ Du kan til enhver tid ændre dit obligationsvalg via **Konfigurer** på integrat
 | `aktuel_kurs` | Aktuel spotpris ved udbetaling |
 | `gruppe` | Obligationsgruppe (f.eks. "Fast rente") |
 | `nasdaq_url` | Link til Nasdaq Copenhagen |
+| `rentetillæg` | Rentetillæg (kun F-kort) |
 
 ## Opdatering
 
-Data hentes dagligt kl. 10:00 fra Totalkredits API.
+Data hentes hver time fra kl. 08:00 til 18:00 fra Totalkredits API.
 
 ## Fejlfinding
 

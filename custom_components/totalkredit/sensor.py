@@ -23,15 +23,25 @@ async def async_setup_entry(
         "selected_bonds", entry.data.get("selected_bonds", [])
     )
 
-    async_add_entities(
-        TotalkreditSensor(coordinator, bond)
-        for bond in (coordinator.data or [])
-        if bond.get("fondCode") in selected
-    )
+    entities = []
+    for bond in coordinator.data or []:
+        if bond.get("fondCode") in selected:
+            entities.append(TotalkreditSensor(coordinator, bond))
+            entities.append(TotalkreditInterestSensor(coordinator, bond))
+
+    async_add_entities(entities)
+
+
+def _parse_rate(value: str) -> float | None:
+    """Parser en rentesti som '4,30 %' eller '4.30' til float."""
+    try:
+        return float(str(value).replace("%", "").replace(",", ".").strip())
+    except (ValueError, AttributeError):
+        return None
 
 
 class TotalkreditSensor(CoordinatorEntity, SensorEntity):
-    """Sensor der repræsenterer én Totalkredit obligation."""
+    """Sensor der repræsenterer udbetalingskursen for én Totalkredit obligation."""
 
     _attr_state_class = SensorStateClass.MEASUREMENT
 
@@ -58,10 +68,7 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
         price_rate = bond.get("priceRate", "")
         if not price_rate:
             return None
-        try:
-            return float(price_rate.replace(",", "."))
-        except ValueError:
-            return None
+        return _parse_rate(price_rate)
 
     @property
     def extra_state_attributes(self) -> dict:
@@ -69,7 +76,7 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
         bond = self._get_bond()
         if bond is None:
             return {}
-        return {
+        attrs = {
             "navn": bond.get("name"),
             "løbetid": bond.get("lifetime"),
             "fondskode": bond.get("fondCode"),
@@ -80,3 +87,39 @@ class TotalkreditSensor(CoordinatorEntity, SensorEntity):
             "gruppe": bond.get("group"),
             "nasdaq_url": bond.get("nasdaqUrl"),
         }
+        if bond.get("interestMarginRate") is not None:
+            attrs["rentetillæg"] = bond["interestMarginRate"]
+        return attrs
+
+
+class TotalkreditInterestSensor(CoordinatorEntity, SensorEntity):
+    """Sensor der repræsenterer den effektive rente for én Totalkredit obligation."""
+
+    _attr_state_class = SensorStateClass.MEASUREMENT
+    _attr_native_unit_of_measurement = "%"
+
+    def __init__(self, coordinator: TotalkreditCoordinator, bond: dict) -> None:
+        super().__init__(coordinator)
+        self._fond_code = bond["fondCode"]
+        self._attr_unique_id = f"totalkredit_rente_{self._fond_code}"
+        self._attr_name = f"Totalkredit Rente {bond['name']}"
+
+    def _get_bond(self) -> dict | None:
+        if not self.coordinator.data:
+            return None
+        return next(
+            (b for b in self.coordinator.data if b.get("fondCode") == self._fond_code),
+            None,
+        )
+
+    @property
+    def native_value(self) -> float | None:
+        """Returner effektiv rente som sensorens state.
+
+        For F-kort er effectiveRate (expectedRate) allerede inkl. rentetillæg.
+        For faste obligationer og tilpasningslån bruges effectiveRate direkte.
+        """
+        bond = self._get_bond()
+        if bond is None:
+            return None
+        return _parse_rate(bond.get("effectiveRate", ""))
