@@ -18,7 +18,7 @@ class TotalkreditConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(
         self, user_input: dict | None = None
-    ) -> config_entries.FlowResult:
+    ) -> config_entries.ConfigFlowResult:
         errors: dict[str, str] = {}
 
         if user_input is not None:
@@ -33,7 +33,7 @@ class TotalkreditConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 )
 
         try:
-            bonds = await fetch_bonds()
+            bonds = await fetch_bonds(self.hass)
         except Exception:
             return self.async_abort(reason="cannot_connect")
 
@@ -56,18 +56,15 @@ class TotalkreditConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     def async_get_options_flow(
         config_entry: config_entries.ConfigEntry,
     ) -> TotalkreditOptionsFlow:
-        return TotalkreditOptionsFlow(config_entry)
+        return TotalkreditOptionsFlow()
 
 
 class TotalkreditOptionsFlow(config_entries.OptionsFlow):
     """Håndterer ændring af obligationsvalg efter opsætning."""
 
-    def __init__(self, config_entry: config_entries.ConfigEntry) -> None:
-        self._config_entry = config_entry
-
     async def async_step_init(
         self, user_input: dict | None = None
-    ) -> config_entries.FlowResult:
+    ) -> config_entries.ConfigFlowResult:
         errors: dict[str, str] = {}
 
         if user_input is not None:
@@ -77,13 +74,13 @@ class TotalkreditOptionsFlow(config_entries.OptionsFlow):
                 return self.async_create_entry(title="", data=user_input)
 
         try:
-            bonds = await fetch_bonds()
+            bonds = await fetch_bonds(self.hass)
         except Exception:
             return self.async_abort(reason="cannot_connect")
 
-        current = self._config_entry.options.get(
+        current = self.config_entry.options.get(
             "selected_bonds",
-            self._config_entry.data.get("selected_bonds", []),
+            self.config_entry.data.get("selected_bonds", []),
         )
         options = [{"value": b["fondCode"], "label": b["name"]} for b in bonds]
 

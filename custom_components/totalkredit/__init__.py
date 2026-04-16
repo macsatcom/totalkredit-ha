@@ -12,7 +12,7 @@ from .coordinator import TotalkreditCoordinator
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Opsæt integration fra en config entry."""
     coordinator = TotalkreditCoordinator(hass)
-    await coordinator.async_refresh()
+    await coordinator.async_config_entry_first_refresh()
 
     async def _async_update_at_10(now) -> None:
         await coordinator.async_refresh()

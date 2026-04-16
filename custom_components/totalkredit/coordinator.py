@@ -3,9 +3,8 @@ from __future__ import annotations
 
 import logging
 
-import aiohttp
-
 from homeassistant.core import HomeAssistant
+from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 _LOGGER = logging.getLogger(__name__)
@@ -16,12 +15,12 @@ API_URL = (
 )
 
 
-async def fetch_bonds() -> list[dict]:
+async def fetch_bonds(hass: HomeAssistant) -> list[dict]:
     """Hent alle obligationer fra Totalkredit API."""
-    async with aiohttp.ClientSession() as session:
-        async with session.get(API_URL) as response:
-            response.raise_for_status()
-            data = await response.json(content_type=None)
+    session = async_get_clientsession(hass)
+    async with session.get(API_URL) as response:
+        response.raise_for_status()
+        data = await response.json(content_type=None)
 
     bonds = []
     for group in data.get("groups", []):
@@ -46,6 +45,6 @@ class TotalkreditCoordinator(DataUpdateCoordinator):
 
     async def _async_update_data(self) -> list[dict]:
         try:
-            return await fetch_bonds()
+            return await fetch_bonds(self.hass)
         except Exception as err:
             raise UpdateFailed(f"Fejl ved hentning af Totalkredit data: {err}") from err

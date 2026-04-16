@@ -50,3 +50,9 @@ Du kan til enhver tid ændre dit obligationsvalg via **Konfigurer** på integrat
 ## Opdatering
 
 Data hentes dagligt kl. 10:00 fra Totalkredits API.
+
+## Fejlfinding
+
+**HA starter ikke / integrationen loader ikke:**
+- Kontrollér at du **ikke** har `sensor: - platform: totalkredit` i din `configuration.yaml` — denne integration understøtter udelukkende UI-konfiguration.
+- Slet eventuelle gamle YAML-linjer, genstart HA, og tilføj integrationen via Indstillinger → Enheder & tjenester.
