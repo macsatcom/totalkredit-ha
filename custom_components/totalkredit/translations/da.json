@@ -5,6 +5,8 @@
         "title": "Vælg obligationer",
         "description": "Vælg de Totalkredit-obligationer du ønsker at følge.",
         "data": {
+          "select_all": "Vælg alle",
+          "deselect_all": "Fravælg alle",
           "selected_bonds": "Obligationer"
         }
       }
@@ -24,6 +26,8 @@
         "title": "Rediger obligationsvalg",
         "description": "Tilføj eller fjern obligationer du ønsker at følge.",
         "data": {
+          "select_all": "Vælg alle",
+          "deselect_all": "Fravælg alle",
           "selected_bonds": "Obligationer"
         }
       }
