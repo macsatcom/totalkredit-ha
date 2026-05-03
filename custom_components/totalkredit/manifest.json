@@ -1,12 +1,12 @@
 {
   "domain": "totalkredit",
   "name": "Totalkredit",
-  "version": "0.9.5",
+  "codeowners": ["@macsatcom"],
+  "config_flow": true,
+  "dependencies": [],
   "documentation": "https://github.com/macsatcom/totalkredit-ha",
+  "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/macsatcom/totalkredit-ha/issues",
   "requirements": [],
-  "dependencies": [],
-  "codeowners": ["@macsatcom"],
-  "iot_class": "cloud_polling",
-  "config_flow": true
+  "version": "0.9.5"
 }
